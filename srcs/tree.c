@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:07:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:27:26 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:52:20 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_node	*get_new_node(int type, int subtype, t_data *data)
 
 t_node	*tree_redirects(t_token **tokens, int *i, t_env *env, int subtype)
 {
+	(void) env;
 	t_data	*data;
 
 	data = ft_calloc(1, sizeof(t_data)); // check malloc

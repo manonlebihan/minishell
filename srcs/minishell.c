@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:13:10 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:55:12 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:49:19 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	execute_tree(t_shell *shell, t_node *node)
 	}
 }
 
-int	minishell(t_shell *shell, t_env *env)
+void	minishell(t_shell *shell, t_env *env)
 {
 	char	*line;
 	t_node	*root;

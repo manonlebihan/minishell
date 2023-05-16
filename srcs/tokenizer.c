@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:55:23 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:27:35 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:51:44 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,10 @@ t_token	**tokenize(char *string)
 		else if (*string == '>') 
 		{
 			tokens[i] = get_new_token(TOKEN_TYPE_REDIRECT, TOKEN_SUBTYPE_TYPE_REDIRECT_IN_TRUNC_FILE, NULL);
-			if (*(string+1) == '>') {
+			if (*(string+1) == '>')
+			{
 				tokens[i]->subtype = TOKEN_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE;
-				*string++;
+				*string += 1;
 			}
 			i++;
 			*string = 0;
@@ -98,9 +99,10 @@ t_token	**tokenize(char *string)
 		else if (*string == '<')
 		{
 			tokens[i] = get_new_token(TOKEN_TYPE_REDIRECT, TOKEN_SUBTYPE_TYPE_REDIRECT_OUT, NULL);
-			if (*(string+1) == '<') {
+			if (*(string+1) == '<')
+			{
 				tokens[i]->subtype = TOKEN_SUBTYPE_TYPE_REDIRECT_HEREDOC;
-				*string++;
+				*string += 1;
 			}
 			*string = 0;
 			i++;
@@ -109,14 +111,14 @@ t_token	**tokenize(char *string)
 		else if (*string == '"')
 		{
 			tokens[i++] = get_new_token(TOKEN_TYPE_DOUBLE_QUOTES, TOKEN_SUBTYPE_NONE, string);
-			*string++;
+			*string += 1;
 			while (*string && *string++ != '"');
 			*string = '\0';			
 		}
 		else if (*string == '\'')
 		{
 			tokens[i++] = get_new_token(TOKEN_TYPE_SINGLE_QUOTES, TOKEN_SUBTYPE_NONE, string);
-			*string++;
+			*string += 1;
 			while (*string && *string++ != '\'');
 			*string = '\0';
 		}
@@ -130,7 +132,7 @@ t_token	**tokenize(char *string)
 			tokens[i++] = get_new_token(TOKEN_TYPE_WORD, TOKEN_SUBTYPE_NONE, string);
 			prev_was_sep = 0;
 		}
-		*string++;
+		*string += 1;
 	}
 	tokens[i] = NULL;
 	return (tokens);

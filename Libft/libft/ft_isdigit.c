@@ -6,11 +6,11 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:44:17 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:50:06 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:52:42 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:31:37 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:49:35 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include "readline/readline.h"
 # include <readline/history.h> // might be needed
+# include <sys/types.h>
+# include <sys/wait.h>
 
 /** LIBFT **/
 # include "libft.h"
@@ -118,9 +120,11 @@ int	builtin_pwd(t_shell *shell, t_parameters *p);
 
 /** ENV FUNC **/
 t_env	*init_env(void);
+t_env	*create_env(char *key, char *value);
 char	*get_env_value(t_env *env, char *key);
 void	add_env_value(t_env *env, char *key, char *value);
 void	list_env_value(t_env *env);
+char	**get_env_array(t_env *env);
 
 /** EXTERN FUNC **/
 int	extern_command(t_shell *s, t_parameters *p);
@@ -132,7 +136,7 @@ void	free_env(t_env *env);
 void	free_shell(t_shell *shell);
 
 /** MINISHELL FUNC **/
-int	minishell(t_shell *shell, t_env *env);
+void	minishell(t_shell *shell, t_env *env);
 
 /** PARSER FUNC **/
 int	parse(t_token **tokens);

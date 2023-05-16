@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:16:50 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ int	builtin_cd(t_shell *shell, t_parameters *p)
 	if (p->argc == 1)
 		newpwd = ft_strdup(get_env_value(p->env, "HOME")); // check malloc
 	else
+	{
 		if (!ft_strcmp(p->argv[1], "-"))
 			newpwd = ft_strdup(get_env_value(p->env, "OLDPWD")); // check malloc
 		else
 			newpwd = p->argv[1];
+	}
 	if (newpwd == NULL || chdir(newpwd))
 	{
 		print_msg_err(p->argv[0], newpwd, "no such file or directory");

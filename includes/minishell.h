@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:45:48 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:06:45 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@
 # define EXIT_STATUS_GENERAL_ERROR		1
 # define EXIT_STATUS_BUILTIN_ERROR		2
 # define EXIT_STATUS_CANNOT_EXECUTE		126
-# define EXIT_STATUS_COMMAND_NOT_fOUND	127
+# define EXIT_STATUS_COMMAND_NOT_FOUND	127
 # define EXIT_STATUS_SIGNAL_ERROR_BASE	128
 # define EXIT_STATUS_EXIT_CTRL_C		130
 
@@ -107,53 +107,53 @@ typedef struct s_token
 	char	*str;
 }	t_token;
 
-typedef int (*builtin_command_t)(t_shell *, t_parameters *);
+typedef int	(*t_builtin_command)(t_shell *, t_parameters *);
 
 /** MAIN FUNC **/
 
 /** BUILTIN FUNC **/
-builtin_command_t	get_builtin_command(char *command);
-int	builtin_cd(t_shell *shell, t_parameters *p);
-int	builtin_echo(t_shell *shell, t_parameters *p);
-int	builtin_env(t_shell *shell, t_parameters *p);
-int	builtin_exit(t_shell *shell, t_parameters *p);
-int	builtin_pwd(t_shell *shell, t_parameters *p);
+t_builtin_command	get_builtin_command(char *command);
+int					builtin_cd(t_shell *shell, t_parameters *p);
+int					builtin_echo(t_shell *shell, t_parameters *p);
+int					builtin_env(t_shell *shell, t_parameters *p);
+int					builtin_exit(t_shell *shell, t_parameters *p);
+int					builtin_pwd(t_shell *shell, t_parameters *p);
 
 /** ENV FUNC **/
-t_env	*init_env(void);
-t_env	*create_env(char *key, char *value);
-char	*get_env_value(t_env *env, char *key);
-void	add_env_value(t_env *env, char *key, char *value);
-void	list_env_value(t_env *env);
-char	**get_env_array(t_env *env);
+t_env				*init_env(void);
+t_env				*create_env(char *key, char *value);
+char				*get_env_value(t_env *env, char *key);
+void				add_env_value(t_env *env, char *key, char *value);
+void				list_env_value(t_env *env);
+char				**get_env_array(t_env *env);
 
 /** EXTERN FUNC **/
-int	extern_command(t_shell *s, t_parameters *p);
+int					extern_command(t_shell *s, t_parameters *p);
 
 /** FREE FUNC **/
-void	free_tree(t_node *node);
-void	free_tokens(t_token **tokens);
-void	free_env(t_env *env);
-void	free_shell(t_shell *shell);
+void				free_tree(t_node *node);
+void				free_tokens(t_token **tokens);
+void				free_env(t_env *env);
+void				free_shell(t_shell *shell);
 
 /** MINISHELL FUNC **/
-void	minishell(t_shell *shell, t_env *env);
+void				minishell(t_shell *shell, t_env *env);
 
 /** PARSER FUNC **/
-int	parse(t_token **tokens);
+int					parse(t_token **tokens);
 
 /** PRINT FUNC **/
-void	print_msg_err(char *cmd, char *err_cmd, char *msg);
-void	print_std_no_nl(char *msg);
-void	print_std(char *msg);
-void	print_err(char *msg);
+void				print_msg_err(char *cmd, char *err_cmd, char *msg);
+void				print_std_no_nl(char *msg);
+void				print_std(char *msg);
+void				print_err(char *msg);
 
 /** TOKENIZER FUNC **/
-void	free_tokens(t_token **tokens);
-t_token	**tokenize(char *string);
+void				free_tokens(t_token **tokens);
+t_token				**tokenize(char *string);
 
 /** TREE FUNC **/
-t_node	*build_tree(t_token **tokens, t_env *env);
-void	free_tree(t_node *node);
+t_node				*build_tree(t_token **tokens, t_env *env);
+void				free_tree(t_node *node);
 
 #endif

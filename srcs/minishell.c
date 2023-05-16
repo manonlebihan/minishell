@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:13:10 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:47:40 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:05:59 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	execute_tree(t_shell *shell, t_node *node)
 {
-	builtin_command_t	builtin_command;
+	t_builtin_command	builtin_command;
 
 	if (node->type == NODE_TYPE_SIMPLE_CMD)
 	{

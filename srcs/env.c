@@ -6,22 +6,22 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:07:08 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:47:12 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:54:46 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-env_t	*init_env(void)
+t_env	*init_env(void)
 {
 	return (create_env(ENV_INIT, ""));
 }
 
-env_t	*create_env(char *key, char *value)
+t_env	*create_env(char *key, char *value)
 {
-	env_t	*env;
+	t_env	*env;
 
-	env = (env_t *)ft_calloc(1, sizeof(env_t)); // check malloc
+	env = (t_env *)ft_calloc(1, sizeof(t_env)); // check malloc
 	if (env != NULL) {
 		env->key = ft_strdup(key); // check malloc
 		if (value == NULL)
@@ -33,7 +33,7 @@ env_t	*create_env(char *key, char *value)
 	return (env);
 }
 
-env_t	*get_env(env_t *env, char *key)
+t_env	*get_env(t_env *env, char *key)
 {
 	while (env)
 	{
@@ -44,7 +44,7 @@ env_t	*get_env(env_t *env, char *key)
 	return (NULL);
 }
 
-void	list_env_value(env_t *env)
+void	list_env_value(t_env *env)
 {
 	char	*env_var;
 
@@ -58,7 +58,7 @@ void	list_env_value(env_t *env)
 	}
 }
 
-char	*get_env_value(env_t *env, char *key)
+char	*get_env_value(t_env *env, char *key)
 {
 	env = get_env(env, key);
 	if (env != NULL)
@@ -66,9 +66,9 @@ char	*get_env_value(env_t *env, char *key)
 	return (NULL);
 }
 
-void	add_env_value(env_t *env, char *key, char *value)
+void	add_env_value(t_env *env, char *key, char *value)
 {
-	env_t	*an_env;
+	t_env	*an_env;
 
 	an_env = get_env(env, key);
 	if (an_env != NULL)
@@ -82,10 +82,10 @@ void	add_env_value(env_t *env, char *key, char *value)
 	env->next = create_env(key, value);
 }
 
-char	**get_env_array(env_t *env)
+char	**get_env_array(t_env *env)
 {
 	char	**array;
-	env_t	*tmp;
+	t_env	*tmp;
 	int		var_nb;
 	int		i;
 

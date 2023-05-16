@@ -6,13 +6,13 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:35:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 15:11:41 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:12 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_env_var(env_t *e, char **env)
+void	init_env_var(t_env *e, char **env)
 {
 	char	*s;
 
@@ -26,11 +26,11 @@ void	init_env_var(env_t *e, char **env)
 	}
 }
 
-shell_t	*init_shell_var(void)
+t_shell	*init_shell_var(void)
 {
-	shell_t	*s;
+	t_shell	*s;
 
-	s = malloc(sizeof(shell_t)); // check malloc
+	s = malloc(sizeof(t_shell)); // check malloc
 	if (s)
 	{
 		s->exit = 0;
@@ -42,8 +42,8 @@ shell_t	*init_shell_var(void)
 int	main(int argc, char **argv, char **env)
 {
 	int		status;
-	env_t	*e;
-	shell_t	*s;
+	t_env	*e;
+	t_shell	*s;
 
 	(void)argc;
 	(void)argv;

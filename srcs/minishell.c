@@ -6,13 +6,13 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:13:10 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:20:46 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:12 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	execute_tree(shell_t *shell, t_node *node)
+void	execute_tree(t_shell *shell, t_node *node)
 {
 	builtin_command_t	builtin_command;
 
@@ -39,7 +39,7 @@ void	execute_tree(shell_t *shell, t_node *node)
 	}
 }
 
-int	minishell(shell_t *shell, env_t *env)
+int	minishell(t_shell *shell, t_env *env)
 {
 	char	*line;
 	t_node	*root;

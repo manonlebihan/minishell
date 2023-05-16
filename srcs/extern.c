@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:24:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:30:59 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	is_absolute(char *cmd)
 	return (ft_strchr(cmd, '/') != NULL);
 }
 
-void	execute_command(shell_t *s, parameters_t *p)
+void	execute_command(t_shell *s, t_parameters *p)
 {
 	pid_t	pid = 0;
 	int	status = 0;
@@ -40,7 +40,7 @@ void	execute_command(shell_t *s, parameters_t *p)
 	}
 }
 
-char	*get_path(parameters_t *p)
+char	*get_path(t_parameters *p)
 {
 	char	**paths;
 	char	*env_path;
@@ -69,7 +69,7 @@ char	*get_path(parameters_t *p)
 	return (path);
 }
 
-int	extern_command(shell_t *s, parameters_t *p)
+int	extern_command(t_shell *s, t_parameters *p)
 {
 	char	*path;
 

@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-int	builtin_exit(shell_t *shell, parameters_t *p)
+int	builtin_exit(t_shell *shell, t_parameters *p)
 {
 	shell->last_cmd_status = EXIT_STATUS_NO_ERROR;
 	if (p->argc > 1)

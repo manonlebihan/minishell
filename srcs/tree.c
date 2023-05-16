@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:07:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:34:14 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_node	*get_new_node(int type, int subtype, t_data *data)
 	return (node);
 }
 
-t_node	*tree_redirects(t_token **tokens, int *i, env_t *env, int subtype)
+t_node	*tree_redirects(t_token **tokens, int *i, t_env *env, int subtype)
 {
 	t_data	*data;
 
@@ -50,7 +50,7 @@ t_node	*tree_redirects(t_token **tokens, int *i, env_t *env, int subtype)
 	return (get_new_node(NODE_TYPE_REDIRECT, subtype, data));
 }
 
-t_node	*tree_simple_cmd(t_token **tokens, int *i, env_t *env)
+t_node	*tree_simple_cmd(t_token **tokens, int *i, t_env *env)
 {
 	t_token	**t;
 	t_data	*data;
@@ -66,7 +66,7 @@ t_node	*tree_simple_cmd(t_token **tokens, int *i, env_t *env)
 		idx++;
 	}
 	data = ft_calloc(1, sizeof(t_data)); // check malloc
-	data->parameters = ft_calloc(1, sizeof(parameters_t)); // check malloc
+	data->parameters = ft_calloc(1, sizeof(t_parameters)); // check malloc
 	data->parameters->env = env;
 	data->parameters->argc = argc;
 	data->parameters->argv = ft_calloc(argc + 1, sizeof(char *)); // check malloc
@@ -80,7 +80,7 @@ t_node	*tree_simple_cmd(t_token **tokens, int *i, env_t *env)
 	return (get_new_node(NODE_TYPE_SIMPLE_CMD, NODE_SUBTYPE_NONE, data));
 }
 
-t_node	*tree_cmd(t_token **tokens, int *i, env_t *env)
+t_node	*tree_cmd(t_token **tokens, int *i, t_env *env)
 {
 	t_node	*node;
 	t_node	*new;
@@ -105,7 +105,7 @@ t_node	*tree_cmd(t_token **tokens, int *i, env_t *env)
 	return (node);
 }
 
-t_node	*tree_minishell_cmd(t_token **tokens, int *i, env_t *env)
+t_node	*tree_minishell_cmd(t_token **tokens, int *i, t_env *env)
 {
 	t_node	*node;
 	t_node	*new;
@@ -122,7 +122,7 @@ t_node	*tree_minishell_cmd(t_token **tokens, int *i, env_t *env)
 	return (node);
 }
 
-t_node	*build_tree(t_token **tokens, env_t *env)
+t_node	*build_tree(t_token **tokens, t_env *env)
 {
 	int	i;
 

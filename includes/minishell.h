@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:51:45 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,29 @@
 # define EXIT_STATUS_EXIT_CTRL_C		130
 
 /** STRUCTS **/
-typedef struct env_s
+typedef struct s_env
 {
 	char			*key;
 	char			*value;
 	struct s_env	*next;
-}	env_t;
+}	t_env;
 
-typedef struct shell_s
+typedef struct s_shell
 {
 	int	exit;
 	int	last_cmd_status;
-}	shell_t;
+}	t_shell;
 
-typedef struct parameters_s
+typedef struct s_parameters
 {
 	int		argc;
 	char	**argv;
-	env_t	*env;
-}	parameters_t;
+	t_env	*env;
+}	t_parameters;
 
 typedef union u_data
 {
-	parameters_t	*parameters;
+	t_parameters	*parameters;
 	char			*file;
 	char			*heredoc;
 }	t_data;
@@ -104,12 +104,12 @@ typedef struct s_token
 	char	*str;
 }	t_token;
 
-typedef int (*builtin_command_t)(shell_t *, parameters_t *);
+typedef int (*builtin_command_t)(t_shell *, t_parameters *);
 
 /** MAIN FUNC **/
 
 /** TREE FUNC **/
-t_node	*build_tree(t_token **tokens, env_t *env);
+t_node	*build_tree(t_token **tokens, t_env *env);
 void	free_tree(t_node *node);
 
 /** PRINT FUNC **/
@@ -119,7 +119,7 @@ void	print_msg_err(char *cmd, char *err_cmd, char *msg);
 builtin_command_t	get_builtin_command(char *command);
 
 /** EXTERN FUNC **/
-int	extern_command(shell_t *s, parameters_t *p);
+int	extern_command(t_shell *s, t_parameters *p);
 
 /** TOKENIZER FUNC **/
 void	free_tokens(t_token **tokens);

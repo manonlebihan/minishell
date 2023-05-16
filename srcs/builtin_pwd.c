@@ -6,13 +6,13 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:38 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:51:27 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtin_pwd(shell_t *shell, parameters_t *p)
+int	builtin_pwd(t_shell *shell, t_parameters *p)
 {
 	char	buf[MAX_PATH_SIZE];
 

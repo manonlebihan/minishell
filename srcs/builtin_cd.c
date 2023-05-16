@@ -6,13 +6,13 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:40:38 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	free_paths_return(int rc, parameters_t *p, char *newpwd, char *oldpwd)
+int	free_paths_return(int rc, t_parameters *p, char *newpwd, char *oldpwd)
 {
 	if (newpwd != p->argv[1])
 	{
@@ -22,7 +22,7 @@ int	free_paths_return(int rc, parameters_t *p, char *newpwd, char *oldpwd)
 	return (rc);
 }
 
-int	builtin_cd(shell_t *shell, parameters_t *p)
+int	builtin_cd(t_shell *shell, t_parameters *p)
 {
 	char	*newpwd;
 	char	*oldpwd;

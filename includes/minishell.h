@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:49:35 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:45:48 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /** SYSTEM INCLUDES **/
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 # include "readline/readline.h"
 # include <readline/history.h> // might be needed
 # include <sys/types.h>

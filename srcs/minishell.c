@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:13:10 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:49:19 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:47:40 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	minishell(t_shell *shell, t_env *env)
 		tokens = tokenize(line);
 		if (tokens)
 		{
-			// debug_tokens(tokens);
+			//debug_tokens(tokens);
 			if (!parse(tokens))
 				print_err("syntax error\n");
 			else

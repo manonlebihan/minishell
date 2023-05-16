@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:35:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:01:40 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:24:00 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_env_var(t_env *e, char **env)
 		s[0] = 0;
 		s++;
 		add_env_value(e, *env, s);
-		*env++;
+		env++;
 	}
 }
 

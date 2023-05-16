@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:38:11 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,10 @@ int	builtin_echo(t_shell *shell, t_parameters *p)
 	print_new_line = 1;
 
 	shell->last_cmd_status = EXIT_STATUS_NO_ERROR;
-
-	if (p->argc >= 1)
+	if (p->argc > 1)
 	{
 		i = 1;
-		if (!ft_strcmp(p->argv[i], "-n"))
+		if (ft_strcmp(p->argv[i], "-n") == 0)
 		{
 			i++;
 			print_new_line = 0;

@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/24 16:02:36 by mle-biha          #+#    #+#              #
-#    Updated: 2023/05/16 18:03:43 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/05/16 18:28:38 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 MAKEFLAGS		= --silent
 NAME			= libft.a
 CC				= gcc
-CFLAGS			= -I. #-Wall -Wextra -Werror -I.
+CFLAGS			= -Wall -Wextra -Werror -I. -g -ggdb
 AR				= ar
 ARFLAGS			= -cq
 

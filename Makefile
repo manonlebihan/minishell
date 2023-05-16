@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 14:30:36 by mle-biha          #+#    #+#              #
-#    Updated: 2023/05/16 14:32:22 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/05/16 17:23:19 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,20 @@ DIR_LIBFT			= Libft
 LIBFT				= Libft/libft.a
 
 # Sources and objects
-SRC					= $(SRC_DIR)/main.c
+SRC					= $(SRC_DIR)/main.c \
+						$(SRC_DIR)/builtin_cd.c \
+						$(SRC_DIR)/builtin_echo.c \
+						$(SRC_DIR)/builtin_env.c \
+						$(SRC_DIR)/builtin_exit.c \
+						$(SRC_DIR)/builtin_pwd.c \
+						$(SRC_DIR)/builtin.c \
+						$(SRC_DIR)/env.c \
+						$(SRC_DIR)/extern.c \
+						$(SRC_DIR)/minishell.c \
+						$(SRC_DIR)/parser.c \
+						$(SRC_DIR)/print.c \
+						$(SRC_DIR)/tokenizer.c \
+						$(SRC_DIR)/tree.c 
 OBJ					= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # --------------------------- Colors --------------------------- #

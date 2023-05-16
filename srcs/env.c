@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:07:08 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:15:09 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:23:14 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_env	*create_env(char *key, char *value)
 	t_env	*env;
 
 	env = (t_env *)ft_calloc(1, sizeof(t_env)); // check malloc
-	if (env != NULL) {
+	if (env != NULL)
+	{
 		env->key = ft_strdup(key); // check malloc
 		if (value == NULL)
 			env->value = ft_strdup(""); // check malloc
@@ -62,7 +63,7 @@ char	*get_env_value(t_env *env, char *key)
 {
 	env = get_env(env, key);
 	if (env != NULL)
-		return env->value;
+		return (env->value);
 	return (NULL);
 }
 
@@ -75,7 +76,7 @@ void	add_env_value(t_env *env, char *key, char *value)
 	{
 		free(an_env->value);
 		an_env->value = ft_strdup(value); // check malloc
-		return;
+		return ;
 	}
 	while (env->next)
 		env = env->next;

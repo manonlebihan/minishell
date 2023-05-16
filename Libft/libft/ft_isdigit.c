@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:44:17 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:25:57 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:03:00 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
+
 int	ft_isnumeric(char *str)
 {
 	if (!*str || (!ft_issign(*str) && !ft_isdigit(*str)))
-		return 0;
+		return (0);
 	str++;
 	while (*str)
 		if (!ft_isdigit(*str++))
-			return 0;
-	return 1;
+			return (0);
+	return (1);
 }

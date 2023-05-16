@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:13:10 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 15:58:48 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:04:16 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	minishell(shell_t *shell, env_t *env)
 
 	while (!shell->exit)
 	{
-		line = readline(">g ");
+		line = readline("> ");
 		tokens = tokenize(line);
 		if (tokens)
 		{

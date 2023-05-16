@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:55:23 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 15:57:56 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:34:58 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,14 @@ t_token	**tokenize(char *string)
 	}
 	tokens[i] = NULL;
 	return (tokens);
+}
+
+void	free_tokens(t_token **tokens)
+{
+	t_token	**t;
+
+	t = tokens;
+	while (*t)
+		free(*t++);
+	free(tokens);
 }

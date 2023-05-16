@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:51:20 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:14:01 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,24 @@ int	builtin_echo(t_shell *shell, t_parameters *p)
 	int	i;
 
 	print_new_line = 1;
-
 	shell->last_cmd_status = EXIT_STATUS_NO_ERROR;
 	if (p->argc > 1)
 	{
 		i = 1;
-		if (ft_strcmp(p->argv[i], "-n") == 0)
+		if (!ft_strcmp(p->argv[i], "-n"))
 		{
 			i++;
 			print_new_line = 0;
 		}
 		while (i < p->argc)
 		{
-			if (i == p->argc - 1)
-				print_std_no_nl(ft_strjoin(clean_string(p->argv[i]), "")); // check malloc
-			else 
-				print_std_no_nl(ft_strjoin(clean_string(p->argv[i]), " ")); // check malloc
+			print_std_no_nl(clean_string(p->argv[i]));
+			if (i < p->argc - 1)
+				print_std_no_nl(" ");
 			i++;
-		}
+        }
 	}
 	if (print_new_line == 1)
 		print_std("");
-	return (shell->last_cmd_status);
+    return (shell->last_cmd_status);
 }

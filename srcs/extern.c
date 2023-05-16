@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:24:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:15:13 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:29:47 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ int	is_absolute(char *cmd)
 
 void	execute_command(t_shell *s, t_parameters *p)
 {
-	(void) s;
 	pid_t	pid = 0;
-	int	status = 0;
+	int		status;
 
+	(void) s;
 	pid = fork();
+	status = 0;
 	if (pid == -1)
 		print_msg_err(p->argv[0], NULL, "cannot fork");
 	else if (pid > 0) 
@@ -32,7 +33,7 @@ void	execute_command(t_shell *s, t_parameters *p)
 		waitpid(pid, &status, 0);
 		kill(pid, SIGTERM);
 	}
-	else 
+	else
 	{
 		// son
 		if (execve(p->argv[0], p->argv, get_env_array(p->env)) == -1)
@@ -59,7 +60,7 @@ char	*get_path(t_parameters *p)
 				path = ft_strjoin(ft_strjoin(*paths, "/"), p->argv[0]); // check malloc
 				if (access(path, X_OK) == 0)
 				{
-					break;
+					break ;
 				}
 				paths++;
 				free(path);

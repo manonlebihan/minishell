@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:35:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:38:18 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@
 # define NODE_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE	2
 # define NODE_SUBTYPE_TYPE_REDIRECT_OUT				3
 # define NODE_SUBTYPE_TYPE_REDIRECT_HEREDOC			4
+
+# define EXIT_STATUS_NO_ERROR			0
+# define EXIT_STATUS_GENERAL_ERROR		1
+# define EXIT_STATUS_BUILTIN_ERROR		2
+# define EXIT_STATUS_CANNOT_EXECUTE		126
+# define EXIT_STATUS_COMMAND_NOT_fOUND	127
+# define EXIT_STATUS_SIGNAL_ERROR_BASE	128
+# define EXIT_STATUS_EXIT_CTRL_C		130
 
 /** STRUCTS **/
 typedef struct env_s

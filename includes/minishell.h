@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:09:45 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:21:56 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,11 @@ typedef struct s_token
 	char	*str;
 }	t_token;
 
+typedef int (*builtin_command_t)(shell_t *, parameters_t *);
+
 /** MAIN FUNC **/
+
+/** TREE FUNC **/
+t_node	*build_tree(t_token **tokens, env_t *env);
 
 #endif

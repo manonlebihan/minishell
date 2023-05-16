@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 14:30:36 by mle-biha          #+#    #+#              #
-#    Updated: 2023/05/16 17:23:19 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/05/16 17:27:10 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC					= $(SRC_DIR)/main.c \
 						$(SRC_DIR)/builtin.c \
 						$(SRC_DIR)/env.c \
 						$(SRC_DIR)/extern.c \
+						$(SRC_DIR)/free.c \
 						$(SRC_DIR)/minishell.c \
 						$(SRC_DIR)/parser.c \
 						$(SRC_DIR)/print.c \

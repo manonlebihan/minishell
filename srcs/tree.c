@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:07:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:27:26 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,15 +128,4 @@ t_node	*build_tree(t_token **tokens, t_env *env)
 
 	i = 0;
 	return (tree_minishell_cmd(tokens, &i, env));
-}
-
-void	free_tree(t_node *node)
-{
-	if (node)
-	{
-		free_tree(node->left);
-		free_tree(node->right);
-		// TODO: be sure to free all allocated memory (especially data)
-		free(node);
-	}
 }

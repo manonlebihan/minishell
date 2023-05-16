@@ -6,7 +6,23 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:37:08 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:37:09 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:46:23 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minishell.h"
+
+int	builtin_env(shell_t *shell, parameters_t *p)
+{
+	if (p->argc == 1)
+	{
+		shell->last_cmd_status = EXIT_STATUS_NO_ERROR;
+		list_env_value(p->env);
+	}
+	else
+	{
+		shell->last_cmd_status = EXIT_STATUS_BUILTIN_ERROR;
+		print_msg_err(p->argv[0], NULL, "too many arguments");
+	}
+	return (shell->last_cmd_status);
+}

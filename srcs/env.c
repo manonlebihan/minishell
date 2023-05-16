@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:07:08 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:30:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:47:12 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ env_t	*get_env(env_t *env, char *key)
 		env = env->next;
 	}
 	return (NULL);
+}
+
+void	list_env_value(env_t *env)
+{
+	char	*env_var;
+
+	while (env)
+	{
+		env_var = ft_strjoin(ft_strjoin(env->key, "="), env->value); // check malloc
+		if (ft_strcmp(env->key, ENV_INIT))
+			print_std(env_var);
+		env = env->next;
+		free(env_var);
+	}
 }
 
 char	*get_env_value(env_t *env, char *key)

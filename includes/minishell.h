@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:38:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:51:45 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 /** DEFINES **/
 # define ENV_INIT "_ENV_HEADER_"
+# define MAX_PATH_SIZE 1024
 
 # define TOKEN_TYPE_NONE			0
 # define TOKEN_TYPE_WORD			1

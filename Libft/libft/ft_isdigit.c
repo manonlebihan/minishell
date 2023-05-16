@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:44:17 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:52:42 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:55:02 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_isnumeric(char *str)
 {
 	if (!*str || (!ft_issign(*str) && !ft_isdigit(*str)))
 		return 0;
-	*str++;
+	*str += 1;
 	while (*str)
 		if (!ft_isdigit(*str++))
 			return 0;

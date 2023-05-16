@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:48:48 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:50:27 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:53:55 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_list
 }	t_list;
 
 int		ft_atoi(const char *str);
+int		ft_issign(char c);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);

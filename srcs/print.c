@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:03:29 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:41:29 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:52:03 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void	print_msg_err(char *cmd, char *err_cmd, char *msg)
 
 void	print_std_no_nl(char *msg)
 {
-	ft_putstr_fd("[", STDOUT_FILENO);
 	ft_putstr_fd(msg, STDOUT_FILENO);
-	ft_putstr_fd("]", STDOUT_FILENO);
 }
 
 void	print_std(char *msg)

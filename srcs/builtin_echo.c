@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:38:11 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:51:20 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ int	builtin_echo(t_shell *shell, t_parameters *p)
 		}
 		while (i < p->argc)
 		{
-			print_std_no_nl(ft_strjoin(clean_string(p->argv[i]), " ")); // check malloc
+			if (i == p->argc - 1)
+				print_std_no_nl(ft_strjoin(clean_string(p->argv[i]), "")); // check malloc
+			else 
+				print_std_no_nl(ft_strjoin(clean_string(p->argv[i]), " ")); // check malloc
 			i++;
 		}
 	}

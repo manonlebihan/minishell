@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 15:57:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:09:45 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@
 # define TOKEN_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE	2
 # define TOKEN_SUBTYPE_TYPE_REDIRECT_OUT			3
 # define TOKEN_SUBTYPE_TYPE_REDIRECT_HEREDOC		4
+
+# define NODE_TYPE_NONE			0
+# define NODE_TYPE_PIPE			1
+# define NODE_TYPE_SIMPLE_CMD	2
+# define NODE_TYPE_REDIRECT		3
+
+# define NODE_SUBTYPE_NONE							0
+# define NODE_SUBTYPE_TYPE_REDIRECT_IN_TRUNC_FILE	1
+# define NODE_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE	2
+# define NODE_SUBTYPE_TYPE_REDIRECT_OUT				3
+# define NODE_SUBTYPE_TYPE_REDIRECT_HEREDOC			4
 
 /** STRUCTS **/
 typedef struct env_s

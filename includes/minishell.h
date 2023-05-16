@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:21:56 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:32:27 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,14 @@ typedef int (*builtin_command_t)(shell_t *, parameters_t *);
 
 /** TREE FUNC **/
 t_node	*build_tree(t_token **tokens, env_t *env);
+
+/** PRINT FUNC **/
+void	print_msg_err(char *cmd, char *err_cmd, char *msg);
+
+/** BUILTIN FUNC **/
+builtin_command_t	get_builtin_command(char *command);
+
+/** EXTERN FUNC **/
+int	extern_command(shell_t *s, parameters_t *p);
 
 #endif

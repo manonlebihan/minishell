@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:07:08 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 15:10:04 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:30:18 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,14 @@ env_t	*get_env(env_t *env, char *key)
 	return (NULL);
 }
 
+char	*get_env_value(env_t *env, char *key)
+{
+	env = get_env(env, key);
+	if (env != NULL)
+		return env->value;
+	return (NULL);
+}
+
 void	add_env_value(env_t *env, char *key, char *value)
 {
 	env_t	*an_env;
@@ -58,4 +66,33 @@ void	add_env_value(env_t *env, char *key, char *value)
 	while (env->next)
 		env = env->next;
 	env->next = create_env(key, value);
+}
+
+char	**get_env_array(env_t *env)
+{
+	char	**array;
+	env_t	*tmp;
+	int		var_nb;
+	int		i;
+
+	var_nb = 0;
+	tmp = env;
+	while (tmp)
+	{
+		if (ft_strcmp(tmp->key, ENV_INIT))
+			var_nb++;
+		tmp = tmp->next;
+	}
+	array = (char **)malloc(var_nb * sizeof(char *) + 1); // check malloc
+	tmp = env;
+	i = 0;
+	while (tmp)
+	{
+		if (ft_strcmp(tmp->key, ENV_INIT))
+			array[i] = ft_strjoin(tmp->key, ft_strjoin("=", tmp->value)); // check malloc
+		tmp = tmp->next;
+		i++;
+	}
+	array[i] = NULL;
+	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:20:36 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:31:37 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,12 @@ void	list_env_value(t_env *env);
 
 /** EXTERN FUNC **/
 int	extern_command(t_shell *s, t_parameters *p);
+
+/** FREE FUNC **/
+void	free_tree(t_node *node);
+void	free_tokens(t_token **tokens);
+void	free_env(t_env *env);
+void	free_shell(t_shell *shell);
 
 /** MINISHELL FUNC **/
 int	minishell(t_shell *shell, t_env *env);

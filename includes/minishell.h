@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:55:35 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:20:36 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,20 +108,41 @@ typedef int (*builtin_command_t)(t_shell *, t_parameters *);
 
 /** MAIN FUNC **/
 
-/** TREE FUNC **/
-t_node	*build_tree(t_token **tokens, t_env *env);
-void	free_tree(t_node *node);
-
-/** PRINT FUNC **/
-void	print_msg_err(char *cmd, char *err_cmd, char *msg);
-
 /** BUILTIN FUNC **/
 builtin_command_t	get_builtin_command(char *command);
+int	builtin_cd(t_shell *shell, t_parameters *p);
+int	builtin_echo(t_shell *shell, t_parameters *p);
+int	builtin_env(t_shell *shell, t_parameters *p);
+int	builtin_exit(t_shell *shell, t_parameters *p);
+int	builtin_pwd(t_shell *shell, t_parameters *p);
+
+/** ENV FUNC **/
+t_env	*init_env(void);
+char	*get_env_value(t_env *env, char *key);
+void	add_env_value(t_env *env, char *key, char *value);
+void	list_env_value(t_env *env);
 
 /** EXTERN FUNC **/
 int	extern_command(t_shell *s, t_parameters *p);
 
+/** MINISHELL FUNC **/
+int	minishell(t_shell *shell, t_env *env);
+
+/** PARSER FUNC **/
+int	parse(t_token **tokens);
+
+/** PRINT FUNC **/
+void	print_msg_err(char *cmd, char *err_cmd, char *msg);
+void	print_std_no_nl(char *msg);
+void	print_std(char *msg);
+void	print_err(char *msg);
+
 /** TOKENIZER FUNC **/
 void	free_tokens(t_token **tokens);
+t_token	**tokenize(char *string);
+
+/** TREE FUNC **/
+t_node	*build_tree(t_token **tokens, t_env *env);
+void	free_tree(t_node *node);
 
 #endif

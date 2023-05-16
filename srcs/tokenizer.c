@@ -6,11 +6,46 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:55:23 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:34:58 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:03:39 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int	count_words(char *string)
+{
+	int	prev_was_sep;
+	int	nb;
+
+	nb = 0;
+	prev_was_sep = 1;
+	while (*string)
+	{
+		if (*string == '|' || *string == '<' || *string == '>')
+			nb++;
+		else if (*string == '"')
+		{
+			string++;
+			while (*string && *string++ != '"');
+			nb++;
+		}
+		else if (*string == '\'')
+		{
+			string++;
+			while (*string && *string++ != '\'');
+			nb++;
+		}
+		else if (*string == ' ')
+			prev_was_sep = 1;
+		else if (*string != ' ' && prev_was_sep)
+		{
+			nb++;
+			prev_was_sep = 0;
+		}
+		string++;
+	}
+	return (nb);
+}
 
 t_token	*get_new_token(int type, int subtype, char *str)
 {

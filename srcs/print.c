@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:03:29 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:45:32 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:05:28 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,10 @@ void	print_std(char *msg)
 {
 	ft_putstr_fd(msg, STDOUT_FILENO);
 	ft_putstr_fd("\n", STDOUT_FILENO);
+}
+
+void	print_err(char *msg)
+{
+	ft_putstr_fd(STDERR_FILENO, msg);
+	ft_putstr_fd(STDERR_FILENO, "\n");
 }

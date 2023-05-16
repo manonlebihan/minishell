@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:24:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:29:47 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:36:24 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_absolute(char *cmd)
 
 void	execute_command(t_shell *s, t_parameters *p)
 {
-	pid_t	pid = 0;
+	pid_t	pid;
 	int		status;
 
 	(void) s;

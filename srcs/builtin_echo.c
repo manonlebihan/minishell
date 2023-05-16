@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:14:01 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:18:54 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*clean_string(char *str)
 		else
 			return ("manage dollar !!!");
 	}
-	else 
+	else
 		return (str);
 }
 
@@ -69,9 +69,9 @@ int	builtin_echo(t_shell *shell, t_parameters *p)
 			if (i < p->argc - 1)
 				print_std_no_nl(" ");
 			i++;
-        }
+		}
 	}
 	if (print_new_line == 1)
 		print_std("");
-    return (shell->last_cmd_status);
+	return (shell->last_cmd_status);
 }

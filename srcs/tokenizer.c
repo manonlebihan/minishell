@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:55:23 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:51:44 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:02:16 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_token	**tokenize(char *string)
 			if (*(string+1) == '>')
 			{
 				tokens[i]->subtype = TOKEN_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE;
-				*string += 1;
+				*string++;
 			}
 			i++;
 			*string = 0;
@@ -102,7 +102,7 @@ t_token	**tokenize(char *string)
 			if (*(string+1) == '<')
 			{
 				tokens[i]->subtype = TOKEN_SUBTYPE_TYPE_REDIRECT_HEREDOC;
-				*string += 1;
+				*string++;
 			}
 			*string = 0;
 			i++;
@@ -111,14 +111,14 @@ t_token	**tokenize(char *string)
 		else if (*string == '"')
 		{
 			tokens[i++] = get_new_token(TOKEN_TYPE_DOUBLE_QUOTES, TOKEN_SUBTYPE_NONE, string);
-			*string += 1;
+			*string++;
 			while (*string && *string++ != '"');
 			*string = '\0';			
 		}
 		else if (*string == '\'')
 		{
 			tokens[i++] = get_new_token(TOKEN_TYPE_SINGLE_QUOTES, TOKEN_SUBTYPE_NONE, string);
-			*string += 1;
+			*string++;
 			while (*string && *string++ != '\'');
 			*string = '\0';
 		}
@@ -132,7 +132,7 @@ t_token	**tokenize(char *string)
 			tokens[i++] = get_new_token(TOKEN_TYPE_WORD, TOKEN_SUBTYPE_NONE, string);
 			prev_was_sep = 0;
 		}
-		*string += 1;
+		*string++;
 	}
 	tokens[i] = NULL;
 	return (tokens);

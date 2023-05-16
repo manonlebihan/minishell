@@ -6,14 +6,14 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 14:30:36 by mle-biha          #+#    #+#              #
-#    Updated: 2023/05/16 17:27:10 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/05/16 18:02:40 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------------------------- Constant --------------------------- #
 
 CC					= gcc
-CFLAGS				= -Wall -Wextra -Werror -I.
+CFLAGS				= -I. #-Wall -Wextra -Werror -I.
 NAME				= minishell
 INCLUDES			= -I $(DIR_LIBFT) -I $(INC_DIR) -I $(DIR_LIBFT)/ft_printf -I \
 							$(DIR_LIBFT)/gnl -I $(DIR_LIBFT)/libft

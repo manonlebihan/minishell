@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:24:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 17:48:55 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:02:00 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*get_path(t_parameters *p)
 				{
 					break;
 				}
-				*paths += 1;
+				*paths++;
 				free(path);
 				path = NULL;
 			}

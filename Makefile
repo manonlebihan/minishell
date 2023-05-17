@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 14:30:36 by mle-biha          #+#    #+#              #
-#    Updated: 2023/05/17 11:35:21 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/05/17 11:49:19 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC					= $(SRC_DIR)/main.c \
 						$(SRC_DIR)/parser.c \
 						$(SRC_DIR)/print.c \
 						$(SRC_DIR)/tokenizer.c \
+						$(SRC_DIR)/tree_cmd.c \
 						$(SRC_DIR)/tree.c 
 OBJ					= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

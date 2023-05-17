@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:16:50 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:06:02 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,22 @@ int	free_paths_return(int rc, t_parameters *p, char *newpwd, char *oldpwd)
 	return (rc);
 }
 
+char	*cd_path(t_parameters *p)
+{
+	char	*newpwd;
+
+	if (p->argc == 1)
+		newpwd = ft_strdup(get_env_value(p->env, "HOME")); // check malloc
+	else
+	{
+		if (!ft_strcmp(p->argv[1], "-"))
+			newpwd = ft_strdup(get_env_value(p->env, "OLDPWD")); // check malloc
+		else
+			newpwd = p->argv[1];
+	}
+	return (newpwd);
+}
+
 int	builtin_cd(t_shell *shell, t_parameters *p)
 {
 	char	*newpwd;
@@ -34,15 +50,7 @@ int	builtin_cd(t_shell *shell, t_parameters *p)
 		return (1);
 	}
 	oldpwd = ft_strdup(get_env_value(p->env, "PWD")); // check malloc
-	if (p->argc == 1)
-		newpwd = ft_strdup(get_env_value(p->env, "HOME")); // check malloc
-	else
-	{
-		if (!ft_strcmp(p->argv[1], "-"))
-			newpwd = ft_strdup(get_env_value(p->env, "OLDPWD")); // check malloc
-		else
-			newpwd = p->argv[1];
-	}
+	newpwd = cd_path(p);
 	if (newpwd == NULL || chdir(newpwd))
 	{
 		print_msg_err(p->argv[0], newpwd, "no such file or directory");

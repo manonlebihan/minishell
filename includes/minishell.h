@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/17 11:58:14 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:07:34 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,8 @@ t_node				*tree_minishell_cmd(t_token **tokens, int *i, t_env *env);
 
 /** TREE FUNC **/
 t_node				*get_new_node(int type, int subtype, t_data *data);
-t_node				*tree_redirects(t_token **tokens, int *i, t_env *env, int subtype);
+t_node				*tree_redirects(t_token **tokens, int *i, t_env *env,
+						int subtype);
 t_node				*build_tree(t_token **tokens, t_env *env);
 void				free_tree(t_node *node);
 

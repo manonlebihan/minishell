@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:06:45 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:36:33 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ char				*get_env_value(t_env *env, char *key);
 void				add_env_value(t_env *env, char *key, char *value);
 void				list_env_value(t_env *env);
 char				**get_env_array(t_env *env);
+t_env				*get_env(t_env *env, char *key);
 
 /** EXTERN FUNC **/
 int					extern_command(t_shell *s, t_parameters *p);

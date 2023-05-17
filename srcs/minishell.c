@@ -6,11 +6,22 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:13:10 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:31:38 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:56:17 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int	parse(t_token **tokens)
+{
+	int	rc;
+	int	i;
+
+	i = 0;
+	rc = 1;
+	syntax_minishell_cmd(tokens, &i, &rc);
+	return (rc);
+}
 
 void	execute_tree(t_shell *shell, t_node *node)
 {

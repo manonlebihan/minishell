@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:59:25 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 16:02:28 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:55:57 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,4 @@ void	syntax_minishell_cmd(t_token **tokens, int *i, int *rc)
 		(*i)++;
 		syntax_minishell_cmd(tokens, i, rc);
 	}
-}
-
-int	parse(t_token **tokens)
-{
-	int	rc;
-	int	i;
-
-	i = 0;
-	rc = 1;
-	syntax_minishell_cmd(tokens, &i, &rc);
-	return (rc);
 }

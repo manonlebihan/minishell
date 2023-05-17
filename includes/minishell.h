@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/17 11:54:08 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:58:14 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,14 +140,14 @@ void				free_shell(t_shell *shell);
 /** MINISHELL FUNC **/
 void				minishell(t_shell *shell, t_env *env);
 
-/** PARSER FUNC **/
-int					parse(t_token **tokens);
-
 /** PRINT FUNC **/
 void				print_msg_err(char *cmd, char *err_cmd, char *msg);
 void				print_std_no_nl(char *msg);
 void				print_std(char *msg);
 void				print_err(char *msg);
+
+/** SYNTAX FUNC **/
+void				syntax_minishell_cmd(t_token **tokens, int *i, int *rc);
 
 /** TOKENIZER FUNC **/
 void				free_tokens(t_token **tokens);

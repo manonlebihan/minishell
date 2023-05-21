@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:07:08 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/17 11:38:32 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/21 22:43:19 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ t_env	*create_env(char *key, char *value)
 
 void	list_env_value(t_env *env)
 {
-	char	*env_var;
-
 	while (env)
 	{
-		env_var = ft_strjoin(ft_strjoin(env->key, "="), env->value); // check malloc
 		if (ft_strcmp(env->key, ENV_INIT))
-			print_std(env_var);
+		{
+			print_std_no_nl(env->key);
+			print_std_no_nl("=");
+			print_std(env->value);
+		}
 		env = env->next;
-		free(env_var);
 	}
 }
 

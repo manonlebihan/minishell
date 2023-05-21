@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   syntax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:59:25 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/17 11:55:57 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/21 22:41:13 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void	syntax_io_redirect(t_token **tokens, int *i, int *rc)
 	if (!*rc)
 		return ;
 	if (tokens[*i] && tokens[*i]->type == TOKEN_TYPE_WORD)
+	{
 		(*i)++;
+		if (tokens[*i] && tokens[*i]->type == TOKEN_TYPE_WORD)
+			*rc = 0;
+	}
 	else // syntax error
 		*rc = 0;
 }

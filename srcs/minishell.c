@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:13:10 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/17 11:56:17 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/21 22:46:45 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	execute_tree(t_shell *shell, t_node *node)
 	{
 		printf("=======> TODO: manage redirect to file %s\n", node->data->file);
 		// dup2/open/close
-		execute_tree(shell, node->left);
+		if (node->left != NULL)
+			execute_tree(shell, node->left);
 	}
 	else if (node->type == NODE_TYPE_PIPE)
 	{

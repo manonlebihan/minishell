@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 15:48:52 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:24:10 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,6 @@ void				free_tree(t_node *node);
 
 /** UTILS FUNC **/
 int					count_words(char *string);
+void				check_malloc(void *allocated);
 
 #endif

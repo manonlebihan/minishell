@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:35:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 18:24:00 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:26:21 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,9 @@ t_shell	*init_shell_var(void)
 	t_shell	*s;
 
 	s = malloc(sizeof(t_shell)); // check malloc
-	if (s)
-	{
-		s->exit = 0;
-		s->last_cmd_status = 0;
-	}
+	check_malloc(s);
+	s->exit = 0;
+	s->last_cmd_status = 0;
 	return (s);
 }
 

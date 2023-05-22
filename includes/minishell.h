@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 18:18:03 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:33:32 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ int					check_redirect_out(char *string, t_token **tokens,
 t_env				*init_env(void);
 t_env				*create_env(char *key, char *value);
 char				*get_env_value(t_env *env, char *key);
-void				add_env_value(t_env *env, char *key, char *value);
+int					add_env_value(t_env *env, char *key, char *value);
 void				list_env_value(t_env *env);
 char				**get_env_array(t_env *env);
 t_env				*get_env(t_env *env, char *key);
@@ -181,8 +181,7 @@ void				free_tree(t_node *node);
 
 /** UTILS FUNC **/
 int					count_words(char *string);
-//void				check_malloc(void *allocated);
 void				check_malloc(void *allocated);
-void				check_malloc_exit(void *allocated, ...);
+void				check_malloc_exit(void *allocation, ...);
 
 #endif

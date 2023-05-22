@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:07:08 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 18:23:01 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:37:40 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ t_env	*create_env(char *key, char *value)
 	env = (t_env *)ft_calloc(1, sizeof(t_env)); // OK
 	if (env != NULL)
 	{
-		env->key = ft_strdup(key); // check malloc
+		env->key = ft_strdup(key); // OK
 		if (env->key == NULL)
 			return (NULL);
 		if (value == NULL)
 		{
-			env->value = ft_strdup(""); // check malloc
+			env->value = ft_strdup(""); // OK
 			if (env->value == NULL)
 				return (NULL);
 		}
 		else
 		{
-			env->value = ft_strdup(value); // check malloc
+			env->value = ft_strdup(value); // OK
 			if (env->value == NULL)
 				return (NULL);
 		}
@@ -58,7 +58,7 @@ void	list_env_value(t_env *env)
 	}
 }
 
-void	add_env_value(t_env *env, char *key, char *value)
+int	add_env_value(t_env *env, char *key, char *value)
 {
 	t_env	*an_env;
 
@@ -67,9 +67,14 @@ void	add_env_value(t_env *env, char *key, char *value)
 	{
 		free(an_env->value);
 		an_env->value = ft_strdup(value); // check malloc
-		return ;
+		if (an_env->value == NULL)
+			return (1);
+		return (0);
 	}
 	while (env->next)
 		env = env->next;
-	env->next = create_env(key, value);
+	env->next = create_env(key, value); // check malloc
+	if (env->next == NULL)
+		return (1);
+	return (0);
 }

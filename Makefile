@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 14:30:36 by mle-biha          #+#    #+#              #
-#    Updated: 2023/05/17 11:59:00 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/05/22 15:12:21 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,8 @@ SRC					= $(SRC_DIR)/main.c \
 						$(SRC_DIR)/builtin_exit.c \
 						$(SRC_DIR)/builtin_pwd.c \
 						$(SRC_DIR)/builtin.c \
+						$(SRC_DIR)/check_all.c \
+						$(SRC_DIR)/check_pipes_redirects.c \
 						$(SRC_DIR)/env.c \
 						$(SRC_DIR)/extern.c \
 						$(SRC_DIR)/free.c \
@@ -48,7 +50,8 @@ SRC					= $(SRC_DIR)/main.c \
 						$(SRC_DIR)/syntax.c \
 						$(SRC_DIR)/tokenizer.c \
 						$(SRC_DIR)/tree_cmd.c \
-						$(SRC_DIR)/tree.c 
+						$(SRC_DIR)/tree.c \
+						$(SRC_DIR)/utils.c
 OBJ					= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # --------------------------- Colors --------------------------- #

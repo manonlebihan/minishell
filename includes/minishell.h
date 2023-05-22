@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/17 12:07:34 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:10:19 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,18 @@ int					builtin_env(t_shell *shell, t_parameters *p);
 int					builtin_exit(t_shell *shell, t_parameters *p);
 int					builtin_pwd(t_shell *shell, t_parameters *p);
 
+/** CHECK ALL FUNC **/
+void				check_all(char *string, t_token **tokens, int *string_index,
+						int *tokens_index, int *prev_was_sep);
+
+/** CHECK PIPES REDICRECTS FUNC **/
+int					check_pipe(char *string, t_token **tokens, int *string_index,
+						int *tokens_index, int *prev_was_sep);
+int					check_redirect_in(char *string, t_token **tokens, int *string_index,
+						int *tokens_index, int *prev_was_sep);
+int					check_redirect_out(char *string, t_token **tokens, int *string_index,
+						int *tokens_index, int *prev_was_sep);
+
 /** ENV FUNC **/
 t_env				*init_env(void);
 t_env				*create_env(char *key, char *value);
@@ -150,7 +162,7 @@ void				print_err(char *msg);
 void				syntax_minishell_cmd(t_token **tokens, int *i, int *rc);
 
 /** TOKENIZER FUNC **/
-void				free_tokens(t_token **tokens);
+t_token				*get_new_token(int type, int subtype, char *str);
 t_token				**tokenize(char *string);
 
 /** TREE CMD FUNC **/
@@ -162,5 +174,8 @@ t_node				*tree_redirects(t_token **tokens, int *i, t_env *env,
 						int subtype);
 t_node				*build_tree(t_token **tokens, t_env *env);
 void				free_tree(t_node *node);
+
+/** UTILS FUNC **/
+int					count_words(char *string);
 
 #endif

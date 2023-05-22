@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:35:56 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 16:26:21 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:56:49 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(int argc, char **argv, char **env)
 	if (s)
 	{
 		e = init_env();
+		check_malloc(e, s); // free s
 		init_env_var(e, env);
 		minishell(s, e);
 		status = s->last_cmd_status;

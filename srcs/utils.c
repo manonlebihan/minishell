@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:03:44 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 16:23:42 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:55:24 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,16 @@ int	count_words(char *string)
 	return (nb);
 }
 
-void	check_malloc(void *allocated)
+void	check_malloc(void *allocated, ...)
 {
+	va_list	args;
+
+	va_start(args, allocated);
 	if (allocated == NULL)
 	{
+		free(va_arg(args, void *));
+		free(allocated);
+		va_end(args);
 		exit(EXIT_STATUS_GENERAL_ERROR);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 15:14:57 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:48:52 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,22 @@
 # define TOKEN_TYPE_DOUBLE_QUOTES	4
 # define TOKEN_TYPE_SINGLE_QUOTES	5
 
-# define TOKEN_SUBTYPE_NONE							0
-# define TOKEN_SUBTYPE_TYPE_REDIRECT_IN_TRUNC_FILE	1
-# define TOKEN_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE	2
-# define TOKEN_SUBTYPE_TYPE_REDIRECT_OUT			3
-# define TOKEN_SUBTYPE_TYPE_REDIRECT_HEREDOC		4
+# define TOKEN_SUBTYPE_NONE						0
+# define TOKEN_SUBTYPE_REDIRECT_IN_TRUNC_FILE	1
+# define TOKEN_SUBTYPE_REDIRECT_IN_APPEND_FILE	2
+# define TOKEN_SUBTYPE_REDIRECT_OUT				3
+# define TOKEN_SUBTYPE_REDIRECT_HEREDOC			4
 
 # define NODE_TYPE_NONE			0
 # define NODE_TYPE_PIPE			1
 # define NODE_TYPE_SIMPLE_CMD	2
 # define NODE_TYPE_REDIRECT		3
 
-# define NODE_SUBTYPE_NONE							0
-# define NODE_SUBTYPE_TYPE_REDIRECT_IN_TRUNC_FILE	1
-# define NODE_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE	2
-# define NODE_SUBTYPE_TYPE_REDIRECT_OUT				3
-# define NODE_SUBTYPE_TYPE_REDIRECT_HEREDOC			4
+# define NODE_SUBTYPE_NONE						0
+# define NODE_SUBTYPE_REDIRECT_IN_TRUNC_FILE	1
+# define NODE_SUBTYPE_REDIRECT_IN_APPEND_FILE	2
+# define NODE_SUBTYPE_REDIRECT_OUT				3
+# define NODE_SUBTYPE_REDIRECT_HEREDOC			4
 
 # define EXIT_STATUS_NO_ERROR			0
 # define EXIT_STATUS_GENERAL_ERROR		1

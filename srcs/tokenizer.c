@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 22:59:34 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 15:10:32 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:47:36 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ char	*get_subtype_label(t_token *token)
 {
 	if (token->subtype == TOKEN_SUBTYPE_NONE)
 		return ("NONE");
-	if (token->subtype == TOKEN_SUBTYPE_TYPE_REDIRECT_IN_TRUNC_FILE)
+	if (token->subtype == TOKEN_SUBTYPE_REDIRECT_IN_TRUNC_FILE)
 		return ("TRUNC FILE");
-	if (token->subtype == TOKEN_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE)
+	if (token->subtype == TOKEN_SUBTYPE_REDIRECT_IN_APPEND_FILE)
 		return ("APPEND FILE");
-	if (token->subtype == TOKEN_SUBTYPE_TYPE_REDIRECT_OUT)
+	if (token->subtype == TOKEN_SUBTYPE_REDIRECT_OUT)
 		return ("OUT");
-	if (token->subtype == TOKEN_SUBTYPE_TYPE_REDIRECT_HEREDOC)
+	if (token->subtype == TOKEN_SUBTYPE_REDIRECT_HEREDOC)
 		return ("HEREDOC");
 	return ("UNKNOWN!");
 }

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:44:33 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 14:54:38 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:49:34 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	check_redirect_in(char *string, t_token **tokens, int *string_index,
 	if (string[*string_index] == '>')
 	{
 		tokens[*tokens_index] = get_new_token(TOKEN_TYPE_REDIRECT,
-				TOKEN_SUBTYPE_TYPE_REDIRECT_IN_TRUNC_FILE, NULL);
+				TOKEN_SUBTYPE_REDIRECT_IN_TRUNC_FILE, NULL);
 		if (string[*string_index + 1] == '>')
 		{
-			tokens[*tokens_index]->subtype = TOKEN_SUBTYPE_TYPE_REDIRECT_IN_APPEND_FILE;
+			tokens[*tokens_index]->subtype
+				= TOKEN_SUBTYPE_REDIRECT_IN_APPEND_FILE;
 			(*string_index)++;
 		}
 		(*tokens_index)++;
@@ -52,10 +53,10 @@ int	check_redirect_out(char *string, t_token **tokens, int *string_index,
 	if (string[*string_index] == '<')
 	{
 		tokens[*tokens_index] = get_new_token(TOKEN_TYPE_REDIRECT,
-				TOKEN_SUBTYPE_TYPE_REDIRECT_OUT, NULL);
+				TOKEN_SUBTYPE_REDIRECT_OUT, NULL);
 		if (string[*string_index + 1] == '<')
 		{
-			tokens[*tokens_index]->subtype = TOKEN_SUBTYPE_TYPE_REDIRECT_HEREDOC;
+			tokens[*tokens_index]->subtype = TOKEN_SUBTYPE_REDIRECT_HEREDOC;
 			(*string_index)++;
 		}
 		string[*string_index] = '\0';

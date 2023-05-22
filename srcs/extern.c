@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:24:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/16 19:36:24 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:16:54 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	execute_command(t_shell *s, t_parameters *p)
 	status = 0;
 	if (pid == -1)
 		print_msg_err(p->argv[0], NULL, "cannot fork");
-	else if (pid > 0) 
+	else if (pid > 0)
 	{
 		// father
 		waitpid(pid, &status, 0);

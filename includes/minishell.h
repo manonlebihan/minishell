@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:36:05 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 15:10:19 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:14:57 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,12 +124,15 @@ void				check_all(char *string, t_token **tokens, int *string_index,
 						int *tokens_index, int *prev_was_sep);
 
 /** CHECK PIPES REDICRECTS FUNC **/
-int					check_pipe(char *string, t_token **tokens, int *string_index,
-						int *tokens_index, int *prev_was_sep);
-int					check_redirect_in(char *string, t_token **tokens, int *string_index,
-						int *tokens_index, int *prev_was_sep);
-int					check_redirect_out(char *string, t_token **tokens, int *string_index,
-						int *tokens_index, int *prev_was_sep);
+int					check_pipe(char *string, t_token **tokens,
+						int *string_index, int *tokens_index,
+						int *prev_was_sep);
+int					check_redirect_in(char *string, t_token **tokens,
+						int *string_index, int *tokens_index,
+						int *prev_was_sep);
+int					check_redirect_out(char *string, t_token **tokens,
+						int *string_index, int *tokens_index,
+						int *prev_was_sep);
 
 /** ENV FUNC **/
 t_env				*init_env(void);

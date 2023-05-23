@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:38:42 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/05/22 15:12:45 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:07:21 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,52 @@ int	check_no_space(char *string, t_token **tokens, int *string_index,
 	return (0);
 }
 
-void	check_all(char *string, t_token **tokens, int *string_index,
+/* void	check_all(char *string, t_token **tokens, int *string_index,
 	int *tokens_index, int *prev_was_sep)
 {
-	if (check_pipe(string, tokens, string_index, tokens_index, prev_was_sep)
-		|| check_redirect_in(string, tokens, string_index, tokens_index,
-			prev_was_sep) || check_redirect_out(string, tokens, string_index,
-			tokens_index, prev_was_sep) || check_double_quote(string, tokens,
-			string_index, tokens_index) || check_single_quote(string, tokens,
-			string_index, tokens_index) || check_space(string, string_index,
-			prev_was_sep) || check_no_space(string, tokens, string_index,
-			tokens_index, prev_was_sep))
+	check_pipe(string, tokens, string_index, tokens_index, prev_was_sep)
+	|| check_redirect_in(string, tokens, string_index, tokens_index, prev_was_sep)
+	|| check_redirect_out(string, tokens, string_index, tokens_index, prev_was_sep)
+	|| check_double_quote(string, tokens, string_index, tokens_index)
+	|| check_single_quote(string, tokens, string_index, tokens_index)
+	|| check_space(string, string_index, prev_was_sep)
+	|| check_no_space(string, tokens, string_index, tokens_index, prev_was_sep);
+	(*string_index)++;
+} */
+
+/* void	check_all(char *string, t_token **tokens, int *string_index,
+	int *tokens_index, int *prev_was_sep)
+{
+	int	t;
+
+	t = check_pipe(string, tokens, string_index, tokens_index, prev_was_sep)
+			|| check_redirect_in(string, tokens, string_index, tokens_index, prev_was_sep);
+	if (!t)
 	{
-		;
+		t = check_redirect_out(string, tokens, string_index, tokens_index, prev_was_sep)
+			|| check_double_quote(string, tokens, string_index, tokens_index);
+		if (!t)
+		{
+			t = check_single_quote(string, tokens, string_index, tokens_index)
+				|| check_space(string, string_index, prev_was_sep);
+			if (!t)
+				check_no_space(string, tokens, string_index, tokens_index, prev_was_sep);
+		}
 	}
 	(*string_index)++;
+} */
+
+void	check_all(char *string, t_token **tokens, int *j,
+	int *i, int *prev_was_sep)
+{
+	if (!check_pipe(string, tokens, j, i, prev_was_sep))
+	{
+		if (!check_redirect_in(string, tokens, j, i, prev_was_sep))
+			if (!check_redirect_out(string, tokens, j, i, prev_was_sep))
+				if (!check_double_quote(string, tokens, j, i))
+					if (!check_single_quote(string, tokens, j, i))
+						if (!check_space(string, j, prev_was_sep))
+							check_no_space(string, tokens, j, i, prev_was_sep);
+	}
+		(*j)++;
 }
